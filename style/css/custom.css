@@ -1,0 +1,158 @@
+﻿html,
+body, p, h1, h2, h3, h4, h5, a, .font-fixed {
+    font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif !important;
+}
+
+.navbar-brand img {
+    width: auto;
+    height: 38px;
+}
+
+
+.foi-navbar .navbar-nav .nav-link {
+    font-size: 15px;
+}
+
+.notify-title {
+    text-align: center;
+}
+
+.notify-image {
+    border-radius: 10px;
+}
+
+.text-features {
+    padding-bottom: 30px;
+}
+
+.mail_contact_title {
+    letter-spacing: -1px;
+    line-height: 47px;
+}
+
+.footer_logo {
+    width: 110px;
+    height: auto;
+}
+
+.btn-box a {
+    padding: 19px 0;
+    padding-left: 40px;
+    border-radius: 40px;
+    width: 260px;
+    height: 78px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    .btn-box a:hover {
+        text-decoration: none;
+    }
+
+.btn-box i {
+    font-size: 30px;
+    color: #343434;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.style-one {
+    background: #ffb907;
+    background: -webkit-gradient(left top, right top, color-stop(0%, #ffb907), color-stop(100%, #ffd84f));
+    background: -webkit-gradient(linear, left top, right top, from(#ffb907), to(#ffd84f));
+    background: linear-gradient(to right, #ffb907 0%, #ffd84f 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb907', endColorstr='#ffd84f', GradientType=1 );
+}
+
+
+.style-two {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    border: 2px solid #343434;
+    margin-left: 20px;
+    background-color: transparent;
+}
+
+.hvr-sweep-to-right {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+
+.btn-box .tag-line, .btn-box .name {
+    display: block;
+    line-height: 1em;
+    font-family: 'Dosis';
+}
+
+.btn-box .tag-line {
+    text-transform: uppercase;
+    color: #343434;
+    font-size: 12px;
+}
+
+.btn-box .text {
+    padding-left: 20px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.btn-box .name {
+    font-size: 26px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #343434;
+}
+
+/***************Back to top btn********************/
+.back-to-top {
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ffb907;
+    font-size: 18px;
+    padding: 5px 12px 5px 12px;
+    display: none;
+}
+
+    .back-to-top:hover {
+        background: #585858;
+        color: #fff;
+    }
+
+.privay-policy-card strong {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 11px;
+}
+
+.privay-policy-card p {
+    margin-bottom: 5px;
+}
+
+.modal-header .close {
+    position: absolute;
+    right: 20px;
+}
+
+img {
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: -o-crisp-edges; /* Opera */
+    image-rendering: -webkit-optimize-contrast; /*Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
+.img-webp {
+    position: absolute;
+    max-width: 256px;
+    margin-left: -397px;
+    margin-top: 90px;
+}
