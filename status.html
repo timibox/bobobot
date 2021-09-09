@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>服务状态 | 专注斗鱼、虎牙、bilibili直播机器人服务</title>
+    <link rel="shortcut icon" href="https://www.bobobot.cn/favicon.ico" type="image/x-icon" />
+    <meta name="keywords" content="鲨鱼酱机器人,直播群管机器人(斗鱼,虎牙,bilibili),开播提醒,弹幕查询,直播数据,消费排行,弹幕排行,主播月报,主播周报,水友数据查询" />
+    <meta name="description" content="鲨鱼酱机器人，专注斗鱼、虎牙、bilibili直播机器人服务、，给您免费提供主播开播提醒、主播动态信息第一时间推送给QQ群或者微信。" />
+    <meta name="author" content="BoBoBot Inc." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style/css/all.min.css" />
+    <link rel="stylesheet" href="style/css/style.css" />
+    <link rel="stylesheet" href="style/css/custom.css" />
+    <script type="text/javascript" src="style/js/jquery.min.js"></script>
+    <style type="text/css">
+        .section-before:before {
+            background-color: rgba(44,55,62,0.85);
+        }
+
+        td {
+            text-align: left;
+        }
+
+        table {
+            color: #7b7b7b !important;
+        }
+
+        .table a {
+            color: #7b7b7b;
+            border-bottom: 1px dashed #7b7b7b;
+            padding-bottom: 1px;
+        }
+
+        .nav-tabs {
+            margin-bottom: 30px;
+            border-bottom: none;
+        }
+
+        .nav-tabs {
+            float: right;
+        }
+
+            .nav-tabs li {
+                font-size: 13px;
+                float: right;
+                margin-left: 15px;
+            }
+
+        .light-issue {
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGw9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDIzIDIzIiB3aWR0aD0iMjNwdCIgaGVpZ2h0PSIyM3B0IiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPjxtZXRhZGF0YT4gUHJvZHVjZWQgYnkgT21uaUdyYWZmbGUgNi42LjEgPGRjOmRhdGU+MjAxNi0xMS0xNiAyMzo0Njo1OSArMDAwMDwvZGM6ZGF0ZT48L21ldGFkYXRhPjxkZWZzLz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS1vcGFjaXR5PSIxIiBzdHJva2UtZGFzaGFycmF5PSJub25lIiBmaWxsPSJub25lIiBmaWxsLW9wYWNpdHk9IjEiPjx0aXRsZT5pY29uXzUxMng1MTI8L3RpdGxlPjxnPjx0aXRsZT5MYXllciAxPC90aXRsZT48cGF0aCBkPSJNIDExLjMxMzcwODUgMCBMIDIyLjYyNzQxNyAxMS4zMTM3MDg1IEwgMTEuMzEzNzA4NSAyMi42Mjc0MTcgTCAwIDExLjMxMzcwODUgWiIgZmlsbD0iI2ZlZTAzMiIvPjwvZz48L2c+PC9zdmc+);
+            background-repeat: no-repeat;
+            background-size: 19px 18px;
+            vertical-align: middle;
+            display: inline-block;
+            position: relative;
+            padding-left: 23px;
+        }
+
+        .light-outage {
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGw9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iLTIgLTEgMjIgMjAiIHdpZHRoPSIyMnB0IiBoZWlnaHQ9IjIwcHQiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyI+PG1ldGFkYXRhPiBQcm9kdWNlZCBieSBPbW5pR3JhZmZsZSA2LjYuMSA8ZGM6ZGF0ZT4yMDE2LTExLTE2IDIzOjA2OjA2ICswMDAwPC9kYzpkYXRlPjwvbWV0YWRhdGE+PGRlZnMvPjxnIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLW9wYWNpdHk9IjEiIHN0cm9rZS1kYXNoYXJyYXk9Im5vbmUiIGZpbGw9Im5vbmUiIGZpbGwtb3BhY2l0eT0iMSI+PHRpdGxlPmljb25fNTEyeDUxMjwvdGl0bGU+PGc+PHRpdGxlPkxheWVyIDE8L3RpdGxlPjxwYXRoIGQ9Ik0gLS44OTMzMDU0NCAxNy4wMDMyNDYgTCA4LjI1NzEwODQgMS4wMTYzMTYzIEMgOC41MzE0NTggLjUzNjk5MyA5LjE0MjQzMDQgLjM3MDgyODk0IDkuNjIxNzU0IC42NDUxNzg0NCBDIDkuNzc2MzA1IC43MzM2Mzg4IDkuOTA0NDMxIC44NjE3NjQ4NyA5Ljk5Mjg5MTYgMS4wMTYzMTYzIEwgMTkuMTQzMzA1IDE3LjAwMzI0NiBDIDE5LjQxNzY1NSAxNy40ODI1NyAxOS4yNTE0OTEgMTguMDkzNTQyIDE4Ljc3MjE2OCAxOC4zNjc4OTIgQyAxOC42MjA5MjMgMTguNDU0NDU5IDE4LjQ0OTY4MSAxOC41IDE4LjI3NTQxNCAxOC41IEwgLS4wMjU0MTM4ODcgMTguNSBDIC0uNTc3Njk4NjQgMTguNSAtMS4wMjU0MTM5IDE4LjA1MjI4NSAtMS4wMjU0MTM5IDE3LjUgQyAtMS4wMjU0MTM5IDE3LjMyNTczMyAtLjk3OTg3MzI0IDE3LjE1NDQ5MSAtLjg5MzMwNTQ0IDE3LjAwMzI0NiBaIiBmaWxsPSIjZjEyNzFhIi8+PC9nPjwvZz48L3N2Zz4=);
+            background-repeat: no-repeat;
+            background-size: 19px 18px;
+            vertical-align: middle;
+            display: inline-block;
+            position: relative;
+            padding-left: 23px;
+        }
+
+        .light-maintenance {
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGw9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTJwdCIgaGVpZ2h0PSI1MTJwdCIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48bWV0YWRhdGE+IFByb2R1Y2VkIGJ5IE9tbmlHcmFmZmxlIDYuNi4yIDxkYzpkYXRlPjIwMTctMDMtMTQgMjA6MDk6NTkgKzAwMDA8L2RjOmRhdGU+PC9tZXRhZGF0YT48ZGVmcy8+PGcgc3Ryb2tlPSJub25lIiBzdHJva2Utb3BhY2l0eT0iMSIgc3Ryb2tlLWRhc2hhcnJheT0ibm9uZSIgZmlsbD0ibm9uZSIgZmlsbC1vcGFjaXR5PSIxIj48dGl0bGU+aWNvbl81MTJ4NTEyPC90aXRsZT48Zz48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTSAxMCAwIEwgNTAyIDAgQyA1MDcuNTIyODUgMzM4MTc2ODhlLTIzIDUxMiA0LjQ3NzE1MjUgNTEyIDEwIEwgNTEyIDUwMiBDIDUxMiA1MDcuNTIyODUgNTA3LjUyMjg1IDUxMiA1MDIgNTEyIEwgMTAgNTEyIEMgNC40NzcxNTI1IDUxMiA2NzYzNTM3NWUtMjMgNTA3LjUyMjg1IDAgNTAyIEwgMzAxOTgwNjZlLTIxIDEwIEMgMzA4NzQ0MmUtMjAgNC40NzcxNTI1IDQuNDc3MTUyNSAtMzM4MTc2ODhlLTIzIDEwIDAgWiIgZmlsbD0iI2I4YjhiOCIvPjwvZz48L2c+PC9zdmc+);
+            background-repeat: no-repeat;
+            background-size: 19px 18px;
+            vertical-align: middle;
+            display: inline-block;
+            position: relative;
+            padding-left: 23px;
+        }
+
+        .light-available {
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGw9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPjxtZXRhZGF0YT4gUHJvZHVjZWQgYnkgT21uaUdyYWZmbGUgNi42LjEgPGRjOmRhdGU+MjAxNi0xMS0xNiAwODozNTo0OSArMDAwMDwvZGM6ZGF0ZT48L21ldGFkYXRhPjxkZWZzLz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS1vcGFjaXR5PSIxIiBzdHJva2UtZGFzaGFycmF5PSJub25lIiBmaWxsPSJub25lIiBmaWxsLW9wYWNpdHk9IjEiPjx0aXRsZT5DYW52YXMgMTE8L3RpdGxlPjxnPjx0aXRsZT5MYXllciAxPC90aXRsZT48Y2lyY2xlIGN4PSI4IiBjeT0iOCIgcj0iOCIgZmlsbD0iIzI4Yzk0MCIvPjwvZz48L2c+PC9zdmc+);
+            background-repeat: no-repeat;
+            background-size: 19px 18px;
+            vertical-align: middle;
+            display: inline-block;
+            position: relative;
+            padding-left: 23px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="foi-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light foi-navbar">
+                <a class="navbar-brand" href="/">
+                    <img src="style/images/logo-site_v2.png" alt="logo">
+                </a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                    data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/function">功能</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#screenshots">程序截图</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pro">Pro 权限</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/status">服务状态</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">关于</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container containerA">
+            <section class="page-header">
+                <h2>服务可用性监控</h2>
+                <h5>毫秒级监测鲨鱼酱基础服务的可用性状态。</h5>
+            </section>
+            <div>
+                <ul class="nav nav-tabs">
+                    <li>
+                        <div class="light-available">可用</div>
+                        <div class="light-outage">服务中断</div>
+                    </li>
+                    <li>监控时间戳: 2021-09-11 09:22:51.694</li>
+                </ul>
+            </div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">NO.</th>
+                        <th>基础服务名称</th>
+                        <th>服务状态</th>
+                        <th>接口状态</th>
+                        <th>检测时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 20px; text-align: center;">1</td>
+                        <td><a href="#">鲨鱼酱企业级服务器</a>
+                        </td>
+                        <td>
+                            <div class="light-available">可用</div>
+                        </td>
+                        <td>
+                            <div class="light-available">可用</div>
+                        </td>
+                        <td>状态监测于 2021-09-11 09:22:51.675
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20px; text-align: center;">12</td>
+                        <td><a href="#">斗鱼数据API服务</a>
+                        </td>
+                        <td>
+                            <div class="light-available">可用</div>
+                        </td>
+                        <td>
+                            <div class="light-available">可用</div>
+                        </td>
+                        <td>状态监测于 2021-09-11 09:22:51.667
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20px; text-align: center;">12</td>
+                        <td><a href="#">虎牙直播API服务</a>
+                        </td>
+                        <td>
+                            <div class="light-available">可用</div>
+                        </td>
+                        <td>
+                            <div class="light-available">可用</div>
+                        </td>
+                        <td>状态监测于 2021-09-11 09:22:51.667
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20px; text-align: center;">12</td>
+                        <td><a href="#">BiliBili 数据服务</a>
+                        </td>
+                        <td>
+                            <div class="light-available">可用</div>
+                        </td>
+                        <td>
+                            <div class="light-available">可用</div>
+                        </td>
+                        <td>状态监测于 2021-09-11 09:22:51.667
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="container" style="text-align: center; padding-bottom: 80px;">
+                <a href="https://www.gugujiankong.com/" target="_blank">
+                    <img style="width: 40%; margin-top: 50px;" src="style/images/gugujiankong_banner_t.png"
+                        alt="咕咕监控强力驱动"></a>
+            </div>
+        </div>
+    </main>
+    <footer class="foi-footer text-white">
+        <div class="container">
+            <div class="row footer-content">
+                <div class="col-xl-6 col-lg-7 col-md-8">
+                    <h2 class="mb-0 mail_contact_title">任何意见、功能定制或其他商务合作，</h2>
+                    <h2 class="mb-0 mail_contact_title">欢迎通过右侧按钮联系我们。</h2>
+                </div>
+                <div class="col-md-4 col-lg-5 col-xl-6 py-3 py-md-0 d-md-flex align-items-center justify-content-end">
+                    <a href="/contact" class="btn btn-danger btn-lg">联系我们</a>
+                </div>
+            </div>
+            <div class="row footer-widget-area">
+                <div class="col-md-3">
+                    <div class="py-3">
+                        <img src="style/images/logo.png" alt="logo" class="footer_logo">
+                    </div>
+                    <p class="font-os font-weight-semibold mb3">斗鱼、虎牙、BiliBili等平台支持</p>
+                    <div>
+                        <a class="btn btn-app-download mr-2">
+                            <img src="style/images/douyu.svg" alt="douyu" style="width: 20px;"></a>
+                        <a class="btn btn-app-download mr-2">
+                            <img src="style/images/huya.svg" alt="huya" style="width: 20px;">
+                        </a>
+                        <a class="btn btn-app-download">
+                            <img src="style/images/bilibili.svg" alt="bilibili" style="width: 20px;">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 mt-3 mt-md-0">
+                    <nav>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/function" class="nav-link">功能</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/pro" class="nav-link">Pro权限</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/status" class="nav-link">服务状态</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/contact" class="nav-link">关于</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-3 mt-3 mt-md-0">
+                    <nav>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="https://www.douyu.com" target="_blank" class="nav-link" target="_blank">斗鱼直播</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.huya.com" target="_blank" class="nav-link">虎牙直播</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://bilibili.com" target="_blank" class="nav-link">BiliBili</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://timiy.cn/" target="_blank" class="nav-link">Timiy <span
+                                        class="badge badge-pill badge-secondary ml-3"
+                                        style="font-family: inherit;">强力驱动</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-3 mt-3 mt-md-0">
+                    <p>
+                        &copy; 2021 bobobot.
+                    </p>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <script type="text/javascript" src="style/js/popper.min.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="style/js/common.js"></script>
+</body>
+
+</html>
